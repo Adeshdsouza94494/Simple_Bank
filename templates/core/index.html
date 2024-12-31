@@ -1,0 +1,81 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block head_title %}Banking System{% endblock %}
+
+{% block content %}
+{% if not user.is_authenticated %}
+<div class="relative bg-gradient-to-r from-blue-600 to-blue-800 py-32 lg:py-40">
+    <div class="absolute inset-0 bg-cover bg-center bg-opacity-60" style="background-image: url('{% static 'img/demo1.avif' %}');"></div>
+
+    <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center relative z-10 space-y-8 lg:space-y-0">
+
+        <!-- Left Section (Hero Text and Icon) -->
+        <div class="w-full lg:w-1/2 text-center lg:text-left text-white px-6 lg:px-16">
+            <h1 class="font-extrabold text-5xl lg:text-7xl text-white mb-6 opacity-90 leading-tight">
+                Banking Made Simple & Secure
+            </h1>
+            <p class="text-xl lg:text-2xl mb-6 opacity-80">
+                Seamlessly manage your accounts, make transfers, pay bills, and more. Experience banking that fits your lifestyle.
+            </p>
+            <div class="flex justify-center lg:justify-start">
+                <a href="{% url 'accounts:user_registration' %}" class="bg-white text-blue-800 text-lg font-semibold rounded-lg py-4 px-10 border-2 border-blue-800 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out shadow-xl transform hover:scale-105">
+                    Get Started
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Section (Illustrative Icon/Graphic) -->
+        <div class="w-full lg:w-1/2 flex justify-center">
+            <div class="flex justify-center items-center space-x-6">
+                <img src="{% static 'img/icon.avif' %}" alt="Banking Icon" class="w-64 lg:w-80 animate-pulse opacity-80">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mx-auto px-6 lg:px-16 py-16">
+    <div class="text-center">
+        <h2 class="font-semibold text-3xl text-gray-900 mb-4">Why Choose Us?</h2>
+        <p class="text-lg text-gray-600 mb-12">
+            With cutting-edge technology and a user-friendly interface, we offer a secure and convenient banking experience.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Feature 1 -->
+        <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out">
+            <div class="text-blue-800 text-4xl mb-6">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3 class="font-semibold text-2xl mb-4">Secure Transactions</h3>
+            <p class="text-lg text-gray-700">
+                We ensure your financial transactions are encrypted and fully secure, giving you peace of mind.
+            </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out">
+            <div class="text-blue-800 text-4xl mb-6">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="font-semibold text-2xl mb-4">Mobile Access</h3>
+            <p class="text-lg text-gray-700">
+                Access your account anywhere, anytime through our intuitive mobile app.
+            </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out">
+            <div class="text-blue-800 text-4xl mb-6">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <h3 class="font-semibold text-2xl mb-4">Instant Transfers</h3>
+            <p class="text-lg text-gray-700">
+                Transfer funds quickly and easily with instant processing.
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
